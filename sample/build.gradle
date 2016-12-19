@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenLocal()
+    }
+    dependencies {
+        classpath 'com.andriipanasiuk.family:plugin:1.0'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'com.andriipanasiuk.family.plugin'
+
+family {
+    father {
+        firstName = "Ivan"
+        lastName = "Karamazon"
+    }
+    mother {
+        firstName = "Katerina"
+        lastName = "Verchovtseva"
+    }
+    children {
+        son {
+            firstName = "Alesha"
+            lastName = "Rakitka"
+        }
+        daughter {
+            firstName = "Agrappina"
+            lastName = "Aleksandrovna"
+        }
+        son {
+            firstName = "Peter"
+            lastName = "Misuov"
+        }
+
+    }
+}
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.1"
+    defaultConfig {
+        applicationId "com.andriipanasiuk.family.sample"
+        minSdkVersion 15
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+}

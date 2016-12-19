@@ -1,0 +1,35 @@
+buildscript {
+    repositories {
+        jcenter()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
+    }
+}
+
+apply plugin: 'groovy'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group = "com.andriipanasiuk.family"
+version = "1.0"
+
+dependencies {
+    compile gradleApi()
+    compile localGroovy()
+    compile "com.android.tools.build:gradle:2.1.2"
+    compile "org.javassist:javassist:3.20.0-GA"
+}
+
+task installArchives(type: Upload) {
+    description "Installs the artifacts to the local Maven repository."
+    configuration = configurations['archives']
+    repositories {
+        mavenDeployer {
+            repository url: "file://${System.properties['user.home']}/.m2/repository"
+            pom.artifactId = "plugin"
+            pom.packaging = "jar"
+        }
+    }
+}
