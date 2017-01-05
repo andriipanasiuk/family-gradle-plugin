@@ -4,7 +4,7 @@ Gradle plugin supporting nested extension objects
 ## Usage
 This example project shows how to create gradle plugin to be able to use the following construction in the client's `build.gradle` file.
 
-```
+```groovy
 family {
     father {
         firstName = "Ivan"
@@ -97,4 +97,8 @@ void son(Closure closure) {
     children.add(son)
 }
 ```
+## StackOverflow
 
+This project is used in answers for
+- http://stackoverflow.com/questions/28548887/adding-object-instance-to-gradle-plugin-extension 
+- http://stackoverflow.com/questions/17626607/writing-gradle-plugin-with-nested-extension-objects
